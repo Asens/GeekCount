@@ -12,6 +12,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
@@ -25,7 +26,7 @@ import java.util.Map;
 
 @EnableTransactionManagement
 @Configuration
-@MapperScan("com.geekutil.clickhouse.mapper")
+@MapperScan({"com.geekutil.clickhouse.mapper","com.geekutil.mapper"})
 public class MybatisPlusConfig {
     @Bean
     public PaginationInterceptor paginationInterceptor() {
@@ -72,6 +73,8 @@ public class MybatisPlusConfig {
         configuration.setCacheEnabled(false);
         sqlSessionFactory.setConfiguration(configuration);
         sqlSessionFactory.setPlugins(paginationInterceptor());
+        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
+                .getResources("classpath*:mapper/**/*.xml"));
         return sqlSessionFactory.getObject();
     }
 }

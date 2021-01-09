@@ -19,9 +19,8 @@ import java.util.List;
 public class IndexAct {
     @Resource
     private ViewLogService viewLogService;
+
     @Resource
-    private ViewLogMapper viewLogMapper;
-    //@Resource
     private UserService userService;
 
 
@@ -33,9 +32,7 @@ public class IndexAct {
     @GetMapping("/save")
     public String save(String type){
         ViewLog viewLog = ViewLog.builder().id(1).type(type).createDate(new Date()).build();
-        //viewLogMapper.saveData(viewLog);
-        //viewLogMapper.insert(viewLog);
-        viewLogMapper.saveData(viewLog);
+        viewLogService.saveData(viewLog);
         return "success";
     }
 

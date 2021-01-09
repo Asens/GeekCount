@@ -6,6 +6,6 @@ import com.geekutil.mapper.UserMapper;
 import com.geekutil.mng.UserService;
 import org.springframework.stereotype.Service;
 
-//@Service
+@Service
 public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements UserService {
 }

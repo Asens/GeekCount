@@ -10,13 +10,13 @@ spring:
     auto: true
   datasource:
     driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
-    url: jdbc:clickhouse://39.100.69.192:9000/default
+    url: jdbc:clickhouse://47.92.116.236:8123/default
     username:
     password:
     type: com.zaxxer.hikari.HikariDataSource
     druid:
       db-clickhouse:
-        url: jdbc:clickhouse://47.92.7.220:8123/default
+        url: jdbc:clickhouse://47.92.116.236:8123/default
         driver-class-name: ru.yandex.clickhouse.ClickHouseDriver
       db-mysql:
         url: jdbc:mysql://localhost:3306/geek_admin?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=CONVERT_TO_NULL&useSSL=false&serverTimezone=GMT%2B8
